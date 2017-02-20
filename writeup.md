@@ -26,9 +26,13 @@ The goals / steps of this project are the following:
 There are totally 5 steps in my pipeline as following:
 
 1. Converting the images to grayscale: ![alt text][grayImg]
+
 2. Smoothing the images using Gaussian Filter: ![alt text][smoothedGrayImg]
+
 3. Detecting the edges in images by Canny Algorithm: ![alt text][cannyImg]
+
 4. Selecting the edges within the ROI: ![alt text][maskedCannyImg]
+
 5. Finding the Hough lines: ![alt text][laneLineImg]
 
 
@@ -38,13 +42,15 @@ In order to draw a single line on the left and right lanes, I modified the draw_
 ###2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
+The detection lines are quite jittering. We can stablize it by some filters such as Kalmal filter.
 
-Another shortcoming could be ...
+The pipeline heavily depends on the hard-coded parameters such as the region of interest, the thresholds of canny function, the parameters of the hough transform, etc. Therefore, it is only able to withstand the image condition up to some level. When the condition changes dramatically, like from the sunlight to night or heavily rain, those parameters must be recalibrated, causing the inconvenience. 
 
 
 ###3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+The other color spaces can be used to extract the edge image instead of using grayscale, for example, HSV, LUV, etc.
 
-Another potential improvement could be to ...
+Histogram equalization can be applied to stablize the contrast of the image, making the edge detection robust to illumination change. 
+
+Motion model, such as Kalmal Filter, also can be applied to the slopes and biases of the detected lane lines in order to keep track of them in case there is no detection found.
