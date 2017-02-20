@@ -24,6 +24,7 @@ The goals / steps of this project are the following:
 ###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 There are totally 5 steps in my pipeline as following:
+
 1. Converting the images to grayscale: ![alt text][grayImg]
 2. Smoothing the images using Gaussian Filter: ![alt text][smoothedGrayImg]
 3. Detecting the edges in images by Canny Algorithm: ![alt text][cannyImg]
